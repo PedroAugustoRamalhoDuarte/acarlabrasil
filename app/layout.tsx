@@ -84,6 +84,8 @@ export default function RootLayout({
       <body className={`${poppins.variable} font-sans min-h-screen flex flex-col`}>
         {children}
         <Footer />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
