@@ -54,9 +54,9 @@ export default function Hero() {
                 66% OFF
               </div>
               <img
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80"
+                src="/images/como-aprender.png"
                 alt="Students learning"
-                className="rounded-lg w-full h-full object-cover"
+                className="rounded-lg w-full h-full object-cover border border-gray-900"
               />
             </div>
           </motion.div>

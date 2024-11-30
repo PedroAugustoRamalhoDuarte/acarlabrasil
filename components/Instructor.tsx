@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Award, Youtube, BookOpen } from "lucide-react";
+import Image from "next/image";
 
 export default function Instructor() {
   return (
@@ -21,8 +22,10 @@ export default function Instructor() {
                 transition={{ duration: 0.6 }}
                 className="rounded-2xl overflow-hidden"
               >
-                <img
-                  src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?auto=format&fit=crop&q=80"
+                <Image
+                  src="/images/profile.png"
+                  width={500}
+                  height={500}
                   alt="Carla Brasil"
                   className="w-full h-[500px] object-cover"
                 />
@@ -40,23 +43,28 @@ export default function Instructor() {
             <div>
               <h2 className="text-4xl font-bold mb-6">Carla Brasil</h2>
               <p className="text-lg text-gray-700 mb-8">
-                Especialista em aprendizado acelerado e metodologias inovadoras de ensino.
-                Com mais de uma década de experiência, já ajudou milhares de alunos a
-                transformarem sua forma de aprender.
+              Olá, meu nome é Carla Brasil, e sou escritora, bacharel em Direito, produtora de conteúdo e uma curiosa sobre o mundo à minha volta. Venho de Santarém, do interior do Pará, de uma família humilde, que sempre valorizou o estudo como caminho para o sucesso. 
               </p>
+
+              <p className="text-lg text-gray-700 mb-8">
+              Aos 17 anos, fui aprovada em Medicina (UEPA) e dentro das vagas no SISU de Direito, dentre outras, na UnB, USP e UFSC. Escolhi cursar Direito na UnB, mudei para Brasília e aos 21 anos alcancei outra grande vitória: fui aprovada no meu primeiro concurso público. 
+
+Toda essa trajetória me ensinou lições valiosas sobre técnicas eficazes de estudos, aprendizado acelerado e estratégias (nem sempre óbvias) sobre o que, de fato, funciona.
+              </p>
+
               <div className="grid sm:grid-cols-2 gap-6">
                 <div className="flex items-start gap-4">
                   <Youtube className="h-6 w-6 text-[#cc1300] mt-1" />
                   <div>
                     <h3 className="font-semibold mb-1">Canal no YouTube</h3>
-                    <p className="text-gray-600">+500mil inscritos</p>
+                    <p className="text-gray-600">+15mil inscritos</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <BookOpen className="h-6 w-6 text-[#cc1300] mt-1" />
                   <div>
-                    <h3 className="font-semibold mb-1">Alunos</h3>
-                    <p className="text-gray-600">+50mil formados</p>
+                    <h3 className="font-semibold mb-1">Instagram</h3>
+                    <p className="text-gray-600">+22mil seguidores</p>
                   </div>
                 </div>
               </div>
