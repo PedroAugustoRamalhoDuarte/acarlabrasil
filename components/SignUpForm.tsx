@@ -2,15 +2,50 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Mail, ArrowRight, CheckCircle2, AlertCircle } from "lucide-react";
 
 export default function SignUpForm() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setError(null);
+    setIsSubmitting(true);
+
+    try {
+      // Basic email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        throw new Error("Por favor, insira um e-mail válido.");
+      }
+
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setSubmitted(true);
+      } else {
+        if (data.error === 'Email already exists') {
+          setError("Este e-mail já está cadastrado.");
+        } else {
+          setError("Ocorreu um erro ao cadastrar seu e-mail. Por favor, tente novamente.");
+        }
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Ocorreu um erro inesperado.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -43,14 +78,24 @@ export default function SignUpForm() {
                   placeholder="Seu melhor e-mail"
                   className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#cc1300] focus:border-transparent transition-all duration-200"
                   required
+                  disabled={isSubmitting}
                 />
               </div>
+              {error && (
+                <div className="mt-2 text-red-500 text-sm flex items-center gap-1">
+                  <AlertCircle className="h-4 w-4" />
+                  <span>{error}</span>
+                </div>
+              )}
               <button
                 type="submit"
-                className="w-full mt-4 bg-[#cc1300] text-white font-semibold py-4 px-6 rounded-xl hover:bg-[#a81000] transition-all duration-200 flex items-center justify-center gap-2 group"
+                disabled={isSubmitting}
+                className="w-full mt-4 bg-[#cc1300] text-white font-semibold py-4 px-6 rounded-xl hover:bg-[#a81000] transition-all duration-200 flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <span>Quero Aprender Mais Rápido</span>
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-200" />
+                <span>{isSubmitting ? "Cadastrando..." : "Quero Aprender Mais Rápido"}</span>
+                {!isSubmitting && (
+                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-200" />
+                )}
               </button>
             </form>
           ) : (
