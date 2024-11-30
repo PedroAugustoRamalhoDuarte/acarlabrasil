@@ -34,8 +34,8 @@ export default function Instructor() {
                 <div className="flex items-center gap-4">
                   <Award className="h-12 w-12 text-[#cc1300]" />
                   <div className="text-left">
-                    <p className="text-sm text-gray-600">Experiência</p>
-                    <p className="text-xl font-bold">+10 anos</p>
+                    <p className="text-sm text-gray-600">Visualizações</p>
+                    <p className="text-xl font-bold">+1M de views</p>
                   </div>
                 </div>
               </div>

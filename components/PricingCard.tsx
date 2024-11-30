@@ -5,20 +5,24 @@ import { Check, Lock } from "lucide-react";
 import Link from "next/link";
 
 const features = [
-  "Acesso a +50 vídeos HD sobre técnicas de aprendizado",
-  "Mais de 40 exercícios práticos",
+  "Acesso a +30 vídeos HD sobre técnicas de aprendizado",
+  "Mais de 20 exercícios práticos",
   "Material didático digital completo",
-  "Suporte via comunidade exclusiva",
   "Certificado de conclusão"
 ];
 
 const bonusFeatures = [
-  "E-book: Guia Completo de Técnicas de Memorização",
-  "Suporte direto com Carla Brasil",
-  "Acesso vitalício ao conteúdo"
+  "Mini curso de Técnicas de Memorização",
+  "Suporte de dúvidas com a equipe"
 ];
 
 export default function PricingCard() {
+  const scrollToSignup = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const signupSection = document.getElementById('signup');
+    signupSection?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="py-24 px-6 lg:px-8 bg-white" id="pricing">
       <div className="max-w-3xl mx-auto">
@@ -68,12 +72,14 @@ export default function PricingCard() {
             <div className="space-y-4">
               <Link
                 href="#signup"
+                onClick={scrollToSignup}
                 className="block w-full bg-[#cc1300] text-white text-center font-semibold py-4 rounded-xl hover:bg-[#a81000] transition-colors duration-200"
               >
                 Começar Agora - R$100
               </Link>
               <Link
                 href="#signup"
+                onClick={scrollToSignup}
                 className="block w-full bg-white text-[#cc1300] text-center font-semibold py-4 rounded-xl border-2 border-[#cc1300] hover:bg-[#cc1300]/5 transition-colors duration-200"
               >
                 3x de R$33,33 sem juros

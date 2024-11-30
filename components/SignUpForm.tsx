@@ -49,7 +49,7 @@ export default function SignUpForm() {
   };
 
   return (
-    <section className="py-24 px-6 lg:px-8 bg-[#f0e8db]">
+    <section className="py-24 px-6 lg:px-8 bg-[#f0e8db]" id="signup">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -62,8 +62,7 @@ export default function SignUpForm() {
               Comece Sua Jornada de Aprendizado
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Inscreva-se agora e receba dicas exclusivas sobre aprendizado acelerado
-              diretamente no seu e-mail.
+              Inscreva-se agora para receber mais informações sobre o curso em breve.
             </p>
           </div>
 

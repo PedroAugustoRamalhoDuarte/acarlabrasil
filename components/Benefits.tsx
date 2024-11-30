@@ -21,8 +21,8 @@ const benefits = [
   },
   {
     icon: Users,
-    title: "Comunidade Ativa",
-    description: "Conecte-se com outros alunos e compartilhe experiências de aprendizado."
+    title: "Transforme o Estudo em uma Experiência Prazerosa",
+    description: "As técnicas ensinadas ajudam a tornar o aprendizado mais leve, eficiente e até divertido."
   }
 ];
 

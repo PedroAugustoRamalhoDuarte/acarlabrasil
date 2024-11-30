@@ -5,6 +5,12 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function Hero() {
+  const scrollToSignup = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const signupSection = document.getElementById('signup');
+    signupSection?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="relative px-6 lg:px-8 py-24 lg:py-32 bg-gradient-to-b from-[#f0e8db] to-white">
       <div className="mx-auto max-w-7xl">
@@ -28,13 +34,13 @@ export default function Hero() {
               seus objetivos educacionais.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="#pricing"
+              <button
+                onClick={scrollToSignup}
                 className="inline-flex justify-center items-center px-6 py-3 rounded-lg bg-[#cc1300] text-white font-semibold hover:bg-[#a81000] transition-colors duration-200"
               >
                 Começar Agora
                 <span className="ml-2">→</span>
-              </Link>
+              </button>
               <Link
                 href="#about"
                 className="inline-flex justify-center items-center px-6 py-3 rounded-lg border-2 border-[#cc1300] text-[#cc1300] font-semibold hover:bg-[#cc1300]/10 transition-colors duration-200"
